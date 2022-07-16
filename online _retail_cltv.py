@@ -156,3 +156,21 @@ cltv_final.sort_values(by="clv", ascending = False).head(10)
 
 
 cltv_final.groupby("segment").agg({"count","mean","sum"})
+
+#graph 1
+
+cltv_final.groupby('segment').agg('expected_average_profit').mean().plot(kind='bar', colormap='copper_r');
+
+plt.ylabel("profit");
+
+#graph 2
+
+cltv_final.groupby('segment').agg('expected_purch_6_months').mean().plot(kind='bar', colormap='copper_r');
+
+plt.ylabel("expected purchase");
+
+#graph 3
+
+cltv_final.groupby('segment').agg('clv').mean().plot(kind='bar', colormap='copper_r');
+
+plt.ylabel("clv");
